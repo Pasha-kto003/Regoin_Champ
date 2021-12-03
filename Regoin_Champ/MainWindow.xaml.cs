@@ -116,6 +116,28 @@ namespace Regoin_Champ
             }
         }
 
+        private void Enter_Click(object sender, RoutedEventArgs e)
+        {
+            string login = loginBox.Text.Trim();
+            string pass = passwordBox.Password.Trim();
+            if (login == string.Empty)
+            {
+                errorLogin.Text = "Введите логин";
+                //MessageBox.Show("Требуется ввод логина");
+            }
+            else if(pass == string.Empty || pass.Length < 8)
+            {
+                errorPassword.Text = "Введите корректный пароль";
+            }
+
+            else
+            {
+                passwordBox.Background = Brushes.Transparent;
+                loginBox.Background = Brushes.Transparent;
+            }
+        
+        }
+
 
         //connection.SaveChanges();
     }
