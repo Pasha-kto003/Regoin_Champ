@@ -26,5 +26,13 @@ namespace Regoin_Champ.Views
             InitializeComponent();
             DataContext = new LaborantViewModel(laborant);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            MainWindow window = new MainWindow();
+            window.Show();
+
+        }
     }
 }

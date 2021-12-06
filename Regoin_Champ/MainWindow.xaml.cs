@@ -2,6 +2,7 @@
 using Regoin_Champ.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -24,11 +25,11 @@ namespace Regoin_Champ
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-     
+        public LogInfo LogInfo { get; set; } = new LogInfo();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
             //var connection = DBInstance.Get();
             //string path = @"C:\Users\user\Desktop\КЗ_РЧ20_21_Основная группа\Session 1\services.csv";
             //var rows = File.ReadAllLines(path);
@@ -171,6 +172,33 @@ namespace Regoin_Champ
        
         //connection.SaveChanges();
     }
+
+    public class LogInfo : IDataErrorInfo
+    {
+        public string Login { get; set; }
+
+
+        public string this[string columnName] 
+        {
+            get {
+                string error = null;
+                switch (columnName)
+                {
+                    case "Login":
+                        if (string.IsNullOrEmpty(Login))
+                            error = "Не введен логин";
+                        break;
+                }
+                return error;
+            }
+        }
+
+        public string Error => throw new NotImplementedException();
+    }
+
+
+
+
 }
 
     //[DataContract]

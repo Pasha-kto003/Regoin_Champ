@@ -8,7 +8,7 @@
         Title="LaborantView" Height="450" Width="800" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
@@ -18,12 +18,27 @@
                 <ColumnDefinition/>
                 
             </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal">
+             <StackPanel HorizontalAlignment="Left">
+            <Label Content="Имя:" Width="auto" Height="20"/>
+            <Label Content="Фамилия:" Width="auto" Height="20"/>
+            <Label Content="Тип: " Width="auto" Height="20"/>
+        </StackPanel> 
+            <StackPanel HorizontalAlignment="Left">
             <Label Content="{Binding FirstName}" Width="120" Height="20"/>
             <Label Content="{Binding LastName}" Width="120" Height="20"/>
             <Label Content="{Binding Type}" Width="120" Height="20"/>
-            <Image Grid.Row="1"  Source="{Binding ImageClient}" Height="150" Width="150"/>
+           
         </StackPanel>
-        <Frame Name="mainFrame" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" NavigationUIVisibility="Hidden" />
+           
+        </StackPanel>
+        <Image Grid.Row="1"  Source="{Binding ImageClient}" Height="150" Width="150"/>
+        <StackPanel Grid.Column="1">
+            <Label HorizontalAlignment="Right" Height="20" Width="60" Content="{Binding Time}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Button Height="25" Width="100" Margin="5 40 0 0" HorizontalAlignment="Left" Content="Выход" Command="{Binding Exit}" Click="Button_Click"></Button>
+        </StackPanel>
+            <Frame Name="mainFrame" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

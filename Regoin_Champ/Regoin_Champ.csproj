@@ -191,6 +191,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\laborant_1.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Администратор.png" />
+    <Resource Include="Images\Бухгалтер.jpeg" />
     <Resource Include="logo.ico" />
     <Resource Include="logo.png" />
   </ItemGroup>
