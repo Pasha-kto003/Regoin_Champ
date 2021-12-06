@@ -72,6 +72,9 @@
     <Compile Include="Views\LaborantView.xaml.cs">
       <DependentUpon>LaborantView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="mvvm\BaseViewModel.cs" />
@@ -191,6 +198,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Speaker.png" />
+    <Resource Include="Resources\Refresh.png" />
+    <Resource Include="Resources\CaptchaBack.png" />
     <Resource Include="Images\laborant_1.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

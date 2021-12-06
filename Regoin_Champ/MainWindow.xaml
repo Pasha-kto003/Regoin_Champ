@@ -34,6 +34,7 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
+            
             <Label Content="Введите пароль" Height="20"/>
             <TextBlock Height="20" x:Name="errorPassword" Foreground="Red"/>
             <PasswordBox  x:Name="passwordBox" MaxLength="16"
@@ -42,16 +43,48 @@
               IsChecked="False" Checked="revealModeCheckBox_Checked" Unchecked="revealModeCheckBox_Checked"
              />
             <TextBlock x:Name="statusText" Margin="10" HorizontalAlignment="Center" />
+            <TextBox x:Name="captchabox"/>
+            <TextBox Height="30" IsEnabled="False" FontFamily="Chiller" FontWeight="Bold" x:Name="CaptchaText" Grid.ColumnSpan="2" Grid.Row="0" Text="ABCDef" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF65778D" >
+
+                <TextBox.Background>
+                    <ImageBrush ImageSource="Resources/CaptchaBack.png"/>
+                </TextBox.Background>
+
+                <TextBox.Style>
+                    <Style  TargetType="{x:Type TextBox}" >
+                        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Button Name="ResetCaptchaButton" Grid.Row="1" Grid.Column="1" Margin="2,2,0,2" Width="AUTO" HorizontalContentAlignment="Center" Click="ResetCaptchaButton_Click" FontSize="13" FontWeight="Normal">
+                <StackPanel>
+                    <Image Source="Resources/Refresh.png" Stretch="Uniform" Height="30"/>
+                </StackPanel>
+            </Button>
+
         </StackPanel>
         <StackPanel Grid.Row="2">
             <Button Content="Войти" Click="Enter_Click" Width="120"/>
+            
         </StackPanel>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="90"/>
             </Grid.ColumnDefinitions>
-
+            <StackPanel Grid.Column="0">
+                <Label HorizontalAlignment="Right" Height="20" Width="60" Content="{Binding Time}"/>
+            </StackPanel>
             <Image Source="logo.png" Grid.Column="1"/>
         </Grid>
     </Grid>

@@ -1,5 +1,6 @@
 ﻿using Regoin_Champ.db;
 using Regoin_Champ.mvvm;
+using Regoin_Champ.Views;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -49,7 +50,8 @@ namespace Regoin_Champ.ViewModels
                 if (_time == TimeSpan.Zero) _timer.Stop();
                 if (_time == TimeSpan.FromMinutes(15))
                 {
-                    MessageBox.Show("Осталось 15 минут");
+                    MessageWindow message = new MessageWindow("Осталось четверть часа");
+                    message.Show();
                 }
                 _time = _time.Add(TimeSpan.FromSeconds(-1));
                 SignalChanged("Time");
